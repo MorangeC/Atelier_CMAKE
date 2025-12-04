@@ -28,14 +28,18 @@ int main(int argc, char *argv[]){
 		}
 		else {printf("Erreur de parametres");}
 	}
-	else if (argc == 3)
-	{ 
-		if (strcmp(op, "car") == 0) 
-		{
-			r = _car(atof(a));
-			printf("%lf",r);
-		}
-	}
+	else if (argc == 3) {
+        op = argv[1];
+        a  = argv[2];
+
+        if (strcmp(op, "car") == 0) {
+            r = _car(atof(a));
+            printf("%lf", r);
+        }
+        else {
+            printf("Erreur de parametres");
+        }
+    }
 	else {printf("Erreur de parametres");}
 	return 0;
 }
