@@ -129,7 +129,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: test-car-report
-          path: build/reportcar.txt      # <-- le fichier à récupérer
+          path: build/report.txt      # <-- le fichier à récupérer
           retention-days: 14          # optionnel
 
       - name: Job summary (facultatif mais pratique)
@@ -137,7 +137,7 @@ jobs:
           echo "### Résultat du test *car*" >> $GITHUB_STEP_SUMMARY
           echo '' >> $GITHUB_STEP_SUMMARY
           echo '' >> $GITHUB_STEP_SUMMARY
-          cat build/reportcar.txt >> $GITHUB_STEP_SUMMARY
+          cat build/report.txt >> $GITHUB_STEP_SUMMARY
           echo '' >> $GITHUB_STEP_SUMMARY
       
   Deployment:
