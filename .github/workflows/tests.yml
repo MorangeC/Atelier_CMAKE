@@ -129,7 +129,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: test-car-report
-          path: build/report.txt      # <-- le fichier à récupérer
+          path: build/reportcar.txt      # <-- le fichier à récupérer
           retention-days: 14          # optionnel
 
       - name: Job summary (facultatif mais pratique)
