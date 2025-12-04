@@ -109,14 +109,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-
       - name: Build
         run: |
           mkdir -p build
           cd build
           cmake ..
           make
-
       - name: Run test "car" and capture report
         run: |
           cd build
@@ -124,21 +122,16 @@ jobs:
           echo "== Test car 5 ==" > report.txt
           ./src/calculator car 5 | tee -a report.txt
           echo "Exit code: $?" >> report.txt
-
       - name: Upload report as artifact
         uses: actions/upload-artifact@v4
         with:
           name: test-car-report
-          path: build/report.txt      # <-- le fichier à récupérer
-          retention-days: 14          # optionnel
-
-      - name: Job summary (facultatif mais pratique)
+          path: build/report.txt
+          retention-days: 14
+      - name: Job summary
         run: |
           echo "### Résultat du test *car*" >> $GITHUB_STEP_SUMMARY
-          echo '' >> $GITHUB_STEP_SUMMARY
-          echo '' >> $GITHUB_STEP_SUMMARY
           cat build/report.txt >> $GITHUB_STEP_SUMMARY
-          echo '' >> $GITHUB_STEP_SUMMARY
       
   Deployment:
     runs-on: ubuntu-latest
